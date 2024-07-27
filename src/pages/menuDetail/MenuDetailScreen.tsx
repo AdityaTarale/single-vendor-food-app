@@ -2,9 +2,9 @@ import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { getIcon } from "../../../assets/constants";
 import { Button, Text } from "../../elements";
-import colors from "../../theme/colors";
+import colors, { lightenColor } from "../../theme/colors";
 
-const meal = {
+const menuDetail = {
   name: "Jalebi",
   ingredients:
     "Maida, corn flour, baking soda, vinegar, curd, water, turmeric, saffron, cardamom",
@@ -19,26 +19,26 @@ const meal = {
     "https://crazymasalafood.com/wp-content/images/2023/05/jalebi-1.jpg.webp",
 };
 
-const MealDetailScreen = () => {
+const MenuDetailScreen = () => {
   const HeartSvg = getIcon("heart");
 
   return (
     <View>
       <Image
-        source={{ uri: meal.img_url }}
+        source={{ uri: menuDetail.img_url }}
         style={{ width: "100%", height: 220 }}
       />
       <View style={{ padding: 12, gap: 12 }}>
         <View style={{ flexDirection: "row", gap: 12 }}>
-          <Text variant="bodySmall">{meal.diet}</Text>
-          <Text variant="bodySmall">{meal.flavor_profile}</Text>
+          <Text variant="bodySmall">{menuDetail.diet}</Text>
+          <Text variant="bodySmall">{menuDetail.flavor_profile}</Text>
         </View>
         <View>
-          <Text variant="titleLarge">{meal.name}</Text>
-          <Text variant="bodyMedium">{meal.ingredients}</Text>
+          <Text variant="titleLarge">{menuDetail.name}</Text>
+          <Text variant="bodyMedium">{menuDetail.ingredients}</Text>
         </View>
         <View style={styles.wishList}>
-          <HeartSvg color={colors.gray} />
+          <HeartSvg color={lightenColor("black", 40)} />
         </View>
         <Button title="Add item 233" onPress={() => {}} />
       </View>
@@ -46,7 +46,7 @@ const MealDetailScreen = () => {
   );
 };
 
-export default MealDetailScreen;
+export default MenuDetailScreen;
 
 const styles = StyleSheet.create({
   wishList: {

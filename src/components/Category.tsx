@@ -2,13 +2,13 @@ import React, { FC } from "react";
 import { Image, Pressable, StyleSheet, View } from "react-native";
 import spacing from "../theme/spacing";
 import { Text } from "../elements";
-import { CategoryType } from "../types/categories";
+import { CategoryType } from "../types/category";
 
-type CategoryItemProps = CategoryType & {
+type CategoryProps = CategoryType & {
   onPress: () => void;
 };
 
-const CategoryItem: FC<CategoryItemProps> = ({ category, image, onPress }) => {
+const Category: FC<CategoryProps> = ({ category, image, onPress }) => {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.category}>
@@ -21,18 +21,18 @@ const CategoryItem: FC<CategoryItemProps> = ({ category, image, onPress }) => {
   );
 };
 
-export default CategoryItem;
+export default Category;
 
 const styles = StyleSheet.create({
   category: {
-    gap: spacing[2],
+    gap: spacing[8],
     alignItems: "center",
   },
   imageContainer: {
-    width: 64,
-    height: 64,
+    width: spacing[64],
+    height: spacing[64],
     backgroundColor: "#afafaf30",
-    borderRadius: 32,
+    borderRadius: spacing[32],
   },
   image: { width: "100%", height: "100%", objectFit: "contain" },
 });

@@ -1,16 +1,16 @@
 import React, { FC, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import MealCardLarge from "../components/MealCardLarge";
+import MenuCardLarge from "../components/MenuCardLarge";
 import spacing from "../theme/spacing";
 import { BottomSheet, Text } from "../elements";
-import { MealType } from "../types/meal";
-import MealDetailScreen from "../pages/mealDetail/MealDetailScreen";
+import { MenuType } from "../types/menu";
+import MenuDetailScreen from "../pages/menuDetail/MenuDetailScreen";
 
-type MealListVerticalProps = {
-  meals: MealType[];
+type MenuItemListVerticalProps = {
+  menuItems: MenuType[];
 };
 
-const MealListVertical: FC<MealListVerticalProps> = ({ meals }) => {
+const MenuItemListVertical: FC<MenuItemListVerticalProps> = ({ menuItems }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const openBottomSheet = () => {
@@ -19,37 +19,37 @@ const MealListVertical: FC<MealListVerticalProps> = ({ meals }) => {
 
   return (
     <View style={styles.listWidget}>
-      <Text variant="titleMedium">Meals to Explore</Text>
+      <Text variant="titleMedium">Menus to Explore</Text>
       <View style={styles.listItems}>
-        {meals.map((meal) => {
+        {menuItems?.map((menu) => {
           return (
-            <MealCardLarge
-              key={meal.name}
-              {...meal}
+            <MenuCardLarge
+              key={menu.name}
+              {...menu}
               onPress={openBottomSheet}
             />
           );
         })}
       </View>
       <BottomSheet isVisible={isVisible} onClose={openBottomSheet}>
-        <MealDetailScreen />
+        <MenuDetailScreen />
       </BottomSheet>
     </View>
   );
 };
 
-export default MealListVertical;
+export default MenuItemListVertical;
 
 const styles = StyleSheet.create({
   listWidget: {
-    gap: spacing[3],
-    paddingHorizontal: spacing[5],
+    gap: spacing[10],
+    paddingHorizontal: spacing[16],
   },
-  listItems: { gap: spacing[7] },
+  listItems: { gap: spacing[24] },
   scrollViewContent: {
-    paddingHorizontal: spacing[1],
+    paddingHorizontal: spacing[4],
   },
   separator: {
-    height: spacing[6],
+    height: spacing[20],
   },
 });

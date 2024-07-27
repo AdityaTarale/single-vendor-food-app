@@ -2,18 +2,20 @@ import React, { FC } from "react";
 import { FlatList, ScrollView, StyleSheet, View } from "react-native";
 import Category from "../components/Category";
 import spacing from "../theme/spacing";
-import { CategoryType } from "../types/categories";
+import { CategoryType } from "../types/category";
 import { useNavigation } from "@react-navigation/native";
 
-type CategoryWidget2Props = {
+type CategoryWidgetMultiColumnProps = {
   categories: CategoryType[];
 };
 
-const CategoryWidget2: FC<CategoryWidget2Props> = ({ categories }) => {
+export const CategoryWidgetMultiColumn: FC<CategoryWidgetMultiColumnProps> = ({
+  categories,
+}) => {
   const navigate = useNavigation();
 
   const navigateToSubCategoryPage = () => {
-    navigate.navigate("SubCategory");
+    navigate.navigate("MenuItemList");
   };
   return (
     <ScrollView horizontal contentContainerStyle={styles.scrollViewContent}>
@@ -21,7 +23,7 @@ const CategoryWidget2: FC<CategoryWidget2Props> = ({ categories }) => {
         numColumns={6}
         data={categories}
         renderItem={({ item }) => (
-          <View style={{ marginHorizontal: spacing[4] }}>
+          <View style={{ marginHorizontal: spacing[12] }}>
             <Category {...item} onPress={navigateToSubCategoryPage} />
           </View>
         )}
@@ -32,13 +34,13 @@ const CategoryWidget2: FC<CategoryWidget2Props> = ({ categories }) => {
   );
 };
 
-export default CategoryWidget2;
+export default CategoryWidgetMultiColumn;
 
 const styles = StyleSheet.create({
   scrollViewContent: {
-    paddingHorizontal: spacing[1],
+    paddingHorizontal: spacing[4],
   },
   separator: {
-    height: spacing[6],
+    height: spacing[20],
   },
 });

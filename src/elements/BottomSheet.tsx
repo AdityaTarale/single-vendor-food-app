@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   closeButton: {
-    zIndex: 100,
+    zIndex: 2,
     alignSelf: "center",
     padding: 12,
     backgroundColor: "white",

@@ -8,10 +8,10 @@ import {
 } from "react-native-tab-view";
 import CategoryItem from "../components/Category";
 import spacing from "../theme/spacing";
-import { CategoryType } from "../types/categories";
+import { CategoryType } from "../types/category";
 
-type SubCategoryListProps = {
-  subCategories: CategoryType[];
+type CategoryTabProps = {
+  categories: CategoryType[];
 };
 
 type Route = {
@@ -20,14 +20,14 @@ type Route = {
   image: string;
 };
 
-const SubCategoryList: FC<SubCategoryListProps> = ({ subCategories }) => {
+const CategoryTab: FC<CategoryTabProps> = ({ categories }) => {
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
 
-  const routes: Route[] = subCategories.map((subCategory) => ({
-    key: subCategory.id.toString(),
-    title: subCategory.category,
-    image: subCategory.image,
+  const routes: Route[] = categories.map((category) => ({
+    key: category.id.toString(),
+    title: category.category,
+    image: category.image,
   }));
 
   const renderScene = () => null;
@@ -76,7 +76,7 @@ const SubCategoryList: FC<SubCategoryListProps> = ({ subCategories }) => {
   );
 };
 
-export default SubCategoryList;
+export default CategoryTab;
 
 const styles = StyleSheet.create({
   container: {
@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   scrollViewContent: {
-    paddingHorizontal: spacing[1],
+    paddingHorizontal: spacing[4],
   },
   separator: {
-    height: spacing[6],
+    height: spacing[20],
   },
   tabBar: {
     backgroundColor: "white",

@@ -20,8 +20,8 @@ export default SearchWidget;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: spacing[4],
-    paddingBottom: spacing[4],
+    paddingHorizontal: spacing[12],
+    paddingBottom: spacing[12],
     backgroundColor: colors.white,
   },
 });

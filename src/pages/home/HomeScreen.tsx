@@ -6,9 +6,9 @@ import indianFood from "../../db/indian-food";
 import colors from "../../theme/colors";
 import spacing from "../../theme/spacing";
 import { RootStackNavigatorScreenProps } from "../../types/navigation";
-import CategoryWidget2 from "../../widgets/CategoryWidget2";
-import MealList from "../../widgets/MealList";
-import MealListVertical from "../../widgets/MealListVertical";
+import { CategoryWidgetMultiColumn } from "../../widgets/CategoryWidgetMultiColumn";
+import MenuItemListHorizontal from "../../widgets/MenuItemListHorizontal";
+import MenuItemListVertical from "../../widgets/MenuItemListVertical";
 import SearchWidget from "../../widgets/SearchWidget";
 
 interface HomeScreenProps extends RootStackNavigatorScreenProps<"Home"> {}
@@ -28,12 +28,12 @@ export const HomeScreen: FC<HomeScreenProps> = () => {
     >
       <Header />
       <SearchWidget onPress={navigateToSearchPage} />
-      <CategoryWidget2 categories={categories} />
+      <CategoryWidgetMultiColumn categories={categories} />
       {/* <Text>Carousel</Text> */}
 
-      <MealList meals={indianFood.slice(0, 20)} />
+      <MenuItemListHorizontal menuItems={indianFood.slice(0, 20)} />
 
-      <MealListVertical meals={indianFood.slice(101, 110)} />
+      <MenuItemListVertical menuItems={indianFood.slice(101, 110)} />
     </ScrollView>
   );
 };
@@ -43,7 +43,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   screen: {
     backgroundColor: colors.white,
-    gap: spacing[7],
+    gap: spacing[24],
   },
 });
 

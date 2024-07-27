@@ -1,10 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { StyleSheet } from "react-native";
 import { HomeScreen } from "./pages/home";
+import { MenuItemListScreen } from "./pages/menuItemList";
 import { SearchScreen } from "./pages/search";
-import { SubCategoryScreen } from "./pages/subCategory";
 import { NavigationProps, RootNavigatorParamList } from "./types/navigation";
 
 const Stack = createNativeStackNavigator<RootNavigatorParamList>();
@@ -23,12 +22,10 @@ export const Navigator = (props: NavigationProps): React.ReactElement => {
           options={{ title: "" }}
           component={SearchScreen}
         />
-        <Stack.Screen name="SubCategory" component={SubCategoryScreen} />
+        <Stack.Screen name="MenuItemList" component={MenuItemListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default Navigator;
-
-const styles = StyleSheet.create({});

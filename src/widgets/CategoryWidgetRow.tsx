@@ -3,17 +3,19 @@ import React, { FC } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import Category from "../components/Category";
 import spacing from "../theme/spacing";
-import { CategoryType } from "../types/categories";
+import { CategoryType } from "../types/category";
 
-type CategoryWidgetProps = {
+type CategoryWidgetRowProps = {
   categories: CategoryType[];
 };
 
-const CategoryWidget: FC<CategoryWidgetProps> = ({ categories }) => {
+export const CategoryWidgetRow: FC<CategoryWidgetRowProps> = ({
+  categories,
+}) => {
   const navigate = useNavigation();
 
   const navigateToSubCategoryPage = () => {
-    navigate.navigate("SubCategory");
+    navigate.navigate("MenuItemList");
   };
 
   return (
@@ -29,13 +31,13 @@ const CategoryWidget: FC<CategoryWidgetProps> = ({ categories }) => {
   );
 };
 
-export default CategoryWidget;
+export default CategoryWidgetRow;
 
 const styles = StyleSheet.create({
   scrollViewContent: {
-    paddingHorizontal: spacing[1],
+    paddingHorizontal: spacing[4],
   },
   separator: {
-    height: spacing[6],
+    height: spacing[20],
   },
 });

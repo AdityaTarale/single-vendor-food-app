@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { RootStackNavigatorScreenProps } from "../../types/navigation";
-import CategoryWidget from "../../widgets/CategoryWidget";
+import { CategoryWidgetRow } from "../../widgets/CategoryWidgetRow";
 import colors from "../../theme/colors";
 
 interface SearchScreenProps extends RootStackNavigatorScreenProps<"Search"> {}
@@ -9,7 +9,7 @@ interface SearchScreenProps extends RootStackNavigatorScreenProps<"Search"> {}
 export const SearchScreen: FC<SearchScreenProps> = () => {
   return (
     <ScrollView style={styles.screen}>
-      <CategoryWidget categories={categories} />
+      <CategoryWidgetRow categories={categories} />
     </ScrollView>
   );
 };

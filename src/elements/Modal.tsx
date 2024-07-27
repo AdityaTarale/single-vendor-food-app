@@ -62,7 +62,7 @@ Modal.Container = ModalContainer;
 Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
 
-export { Modal };
+export default Modal;
 
 const bgColor = "rgba(0,0,0,0.7)";
 

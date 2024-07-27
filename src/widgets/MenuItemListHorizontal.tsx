@@ -1,16 +1,18 @@
 import React, { FC, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import MealCard from "../components/MealCard";
-import spacing from "../theme/spacing";
-import { MealType } from "../types/meal";
+import MealCard from "../components/MenuCard";
 import { BottomSheet, Text } from "../elements";
-import MealDetailScreen from "../pages/mealDetail/MealDetailScreen";
+import MealDetailScreen from "../pages/menuDetail/MenuDetailScreen";
+import spacing from "../theme/spacing";
+import { MenuType } from "../types/menu";
 
-type MealListProps = {
-  meals: MealType[];
+type MenuItemListHorizontalProps = {
+  menuItems: MenuType[];
 };
 
-const MealList: FC<MealListProps> = ({ meals }) => {
+const MenuItemListHorizontal: FC<MenuItemListHorizontalProps> = ({
+  menuItems,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const openBottomSheet = () => {
@@ -23,9 +25,13 @@ const MealList: FC<MealListProps> = ({ meals }) => {
         <Text variant="titleMedium">Top Rated Meal</Text>
       </View>
       <ScrollView horizontal contentContainerStyle={styles.scrollViewContent}>
-        {meals.map((meal) => {
+        {menuItems?.map((menuItem) => {
           return (
-            <MealCard key={meal.name} {...meal} onPress={openBottomSheet} />
+            <MealCard
+              key={menuItem.name}
+              {...menuItem}
+              onPress={openBottomSheet}
+            />
           );
         })}
       </ScrollView>
@@ -37,19 +43,19 @@ const MealList: FC<MealListProps> = ({ meals }) => {
   );
 };
 
-export default MealList;
+export default MenuItemListHorizontal;
 
 const styles = StyleSheet.create({
   listWidget: {
-    gap: spacing[3],
+    gap: spacing[10],
   },
   container: {
-    paddingHorizontal: spacing[5],
+    paddingHorizontal: spacing[16],
   },
   scrollViewContent: {
-    paddingHorizontal: spacing[1],
+    paddingHorizontal: spacing[4],
   },
   separator: {
-    height: spacing[6],
+    height: spacing[20],
   },
 });

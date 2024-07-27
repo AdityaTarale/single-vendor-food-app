@@ -12,7 +12,7 @@ export interface NavigationProps
 export type RootNavigatorParamList = {
   Home: undefined;
   Search: undefined;
-  SubCategory: undefined;
+  MenuItemList: undefined;
 };
 
 export type RootStackNavigatorScreenProps<

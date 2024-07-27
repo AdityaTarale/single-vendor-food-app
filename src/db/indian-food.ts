@@ -1,4 +1,6 @@
-export default [
+import { MenuType } from "../types/menu";
+
+const indianFood: MenuType[] = [
   {
     name: "Adhirasam",
     ingredients: "Rice flour, jaggery, ghee, vegetable oil, elachi",
@@ -3332,3 +3334,5 @@ export default [
       "https://www.whiskaffair.com/wp-content/uploads/2020/03/Zunka-2-1-1024x1536.jpg",
   },
 ];
+
+export default indianFood;

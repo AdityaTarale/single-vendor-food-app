@@ -30,16 +30,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: "100%",
     height: 50,
-    gap: spacing[2],
-    padding: spacing[2],
+    gap: spacing[8],
+    padding: spacing[8],
     backgroundColor: lightenColor("gray", 80),
     borderRadius: spacing[10],
-    paddingHorizontal: spacing[5],
+    paddingHorizontal: spacing[16],
   },
   textInput: {
     fontFamily: "Celias-Medium",
     flex: 1,
-    marginLeft: spacing[2], // Adjust margin if needed
-    marginRight: spacing[2], // Adjust margin if needed
+    marginLeft: spacing[8],
+    marginRight: spacing[8],
   },
 });

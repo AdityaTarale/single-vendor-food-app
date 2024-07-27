@@ -1,16 +1,16 @@
 import React, { FC } from "react";
 import { Image, Pressable, StyleSheet, View } from "react-native";
-import { MealType } from "../types/meal";
-import { Text } from "../elements";
 import spacing from "../theme/spacing";
+import { Text } from "../elements";
+import { MenuType } from "../types/menu";
 import { getIcon } from "../../assets/constants";
-import colors from "../theme/colors";
+import colors, { lightenColor } from "../theme/colors";
 
-type MealCardLargeProps = MealType & {
+type MenuCardProps = MenuType & {
   onPress: () => void;
 };
 
-const MealCardLarge: FC<MealCardLargeProps> = ({
+const MenuCard: FC<MenuCardProps> = ({
   name,
   img_url,
   ingredients,
@@ -23,23 +23,21 @@ const MealCardLarge: FC<MealCardLargeProps> = ({
     <Pressable onPress={onPress}>
       <View style={styles.card}>
         <View style={styles.wishList}>
-          <HeartSvg color={colors.gray} width={18} height={18} />
+          <HeartSvg color={lightenColor("black", 40)} width={18} height={18} />
         </View>
         <View style={styles.imageContainer}>
           <Image source={{ uri: img_url }} style={styles.image} />
         </View>
         <View>
-          <Text variant="titleMedium">{name}</Text>
+          <Text variant="titleSmall">{name}</Text>
+          <Text variant="bodySmall" numberOfLines={1} ellipsizeMode="tail">
+            {ingredients}
+          </Text>
           <View style={styles.cardFooter}>
-            <View>
-              <Text variant="bodySmall">{ingredients.slice(0, 25)}...</Text>
-            </View>
-            <View style={styles.cardFooter}>
-              <Text variant="bodySmall">$4.99</Text>
-              <Text variant="bodySmall">|</Text>
-              <StarSvg color={colors.yellow} width={12} height={12} />
-              <Text variant="bodySmall">4.9</Text>
-            </View>
+            <Text variant="bodySmall">$4.99</Text>
+            <Text variant="bodySmall">|</Text>
+            <StarSvg color={colors.yellow} width={12} height={12} />
+            <Text variant="bodySmall">4.9</Text>
           </View>
         </View>
       </View>
@@ -47,24 +45,28 @@ const MealCardLarge: FC<MealCardLargeProps> = ({
   );
 };
 
-export default MealCardLarge;
+export default MenuCard;
 
 const styles = StyleSheet.create({
-  card: {},
+  card: {
+    width: spacing[130],
+    marginHorizontal: spacing[8],
+    gap: spacing[8],
+  },
   cardFooter: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    gap: spacing[2],
+    gap: spacing[8],
+    marginTop: spacing[4],
   },
   imageContainer: {
     backgroundColor: "#afafaf30",
-    width: "100%",
-    height: 200,
+    width: spacing[130],
+    height: spacing[140],
     overflow: "hidden",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 16,
+    borderRadius: spacing[16],
   },
   image: {
     width: "100%",
@@ -73,11 +75,11 @@ const styles = StyleSheet.create({
   },
   wishList: {
     position: "absolute",
-    right: 8,
-    top: 8,
-    zIndex: 5,
+    right: spacing[8],
+    top: spacing[8],
+    zIndex: 1,
     backgroundColor: "white",
-    padding: 4,
-    borderRadius: 24,
+    padding: spacing[4],
+    borderRadius: spacing[24],
   },
 });

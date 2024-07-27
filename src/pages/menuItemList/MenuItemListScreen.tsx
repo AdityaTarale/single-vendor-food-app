@@ -3,26 +3,26 @@ import { ScrollView, StyleSheet } from "react-native";
 import indianFood from "../../db/indian-food";
 import colors from "../../theme/colors";
 import spacing from "../../theme/spacing";
-import MealListVertical from "../../widgets/MealListVertical";
-import SubCategoryList from "../../widgets/SubCategoryList";
 import { RootStackNavigatorScreenProps } from "../../types/navigation";
+import CategoryTab from "../../widgets/CategoryTab";
+import MenuItemListVertical from "../../widgets/MenuItemListVertical";
 
-interface SubCategoryScreenProps
-  extends RootStackNavigatorScreenProps<"SubCategory"> {}
+interface MenuItemListScreenProps
+  extends RootStackNavigatorScreenProps<"MenuItemList"> {}
 
-export const SubCategoryScreen: FC<SubCategoryScreenProps> = () => {
+export const MenuItemListScreen: FC<MenuItemListScreenProps> = () => {
   return (
     <ScrollView
       contentContainerStyle={styles.screen}
       showsVerticalScrollIndicator={false}
     >
-      <SubCategoryList subCategories={categories} />
-      <MealListVertical meals={indianFood.slice(101, 110)} />
+      <CategoryTab categories={categories} />
+      <MenuItemListVertical menuItems={indianFood.slice(101, 110)} />
     </ScrollView>
   );
 };
 
-export default SubCategoryScreen;
+export default MenuItemListScreen;
 
 const styles = StyleSheet.create({
   screen: {
