@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Navigator from "./src/Navigator";
+import { APIProvider } from "./src/core/apiProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -26,10 +27,12 @@ function App() {
   }
 
   return (
-    <SafeAreaView style={styles.screen}>
-      <StatusBar style="dark" backgroundColor="white" />
-      <Navigator />
-    </SafeAreaView>
+    <APIProvider>
+      <SafeAreaView style={styles.screen}>
+        <StatusBar style="dark" backgroundColor="white" />
+        <Navigator />
+      </SafeAreaView>
+    </APIProvider>
   );
 }
 

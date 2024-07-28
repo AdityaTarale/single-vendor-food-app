@@ -10,12 +10,17 @@ import { CategoryWidgetMultiColumn } from "../../widgets/CategoryWidgetMultiColu
 import MenuItemListHorizontal from "../../widgets/MenuItemListHorizontal";
 import MenuItemListVertical from "../../widgets/MenuItemListVertical";
 import SearchWidget from "../../widgets/SearchWidget";
+import { useAPI } from "../../core/useApi";
+import { apiConfig } from "../../core/config";
 
 interface HomeScreenProps extends RootStackNavigatorScreenProps<"Home"> {}
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
   const navigate = useNavigation();
 
+  const { data, isPending, isError } = useAPI(apiConfig.categories);
+
+  console.log(data);
   const navigateToSearchPage = () => {
     navigate.navigate("Search");
   };
