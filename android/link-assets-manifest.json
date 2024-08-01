@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Celias-Bold.ttf",
+      "sha1": "eb7389abf825342c68e0708f6025846ef5755aea"
+    },
+    {
+      "path": "assets/fonts/Celias-Medium.ttf",
+      "sha1": "bc8b7e48954ec81ffb0785532c77243ce47e2095"
+    },
+    {
+      "path": "assets/fonts/Celias.ttf",
+      "sha1": "d0f9baf6772c4dcc87d56f0960c1a48deea557a1"
+    }
+  ]
+}
